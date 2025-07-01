@@ -1,0 +1,319 @@
+/* General */
+
+html {
+  font-family: 'Raleway', sans-serif;
+  background-color: yellow;
+  font-size: 10px;
+}
+
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+h1, h2 {
+  font-family: 'Cherry Swash', cursive;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0;
+  flex-grow: 1;
+  background-size: 48px 48px;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 2rem;
+  color: yellow;
+  text-align: right;
+  width: 160px;
+  position: absolute;
+  right: 4%;
+  z-index: 3000;
+  text-shadow: 2px 2px 1px black;
+  line-height: 2rem;
+  padding-top: 0.3rem;
+}
+
+p, label, input, select, button, li {
+  font-size: 1.5rem;
+}
+
+li {
+  line-height: 1.5;
+}
+
+/* block styling */
+
+header, aside, main, footer {
+  padding: 20px;
+}
+
+header {
+  border: 5px solid black;
+  border-bottom: 0;
+}
+
+header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.icon-left,
+.icon-right {
+  width: 48px;
+  height: 48px;
+}
+.title-with-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* controls spacing between icon and h1 */
+}
+
+aside {
+  border-right: 5px solid black;
+}
+
+body > div {
+  border: 5px solid black;
+  display: flex;
+}
+
+footer {
+  border: 5px solid black;
+  border-top: 0;
+}
+
+aside {
+  flex: 3;
+}
+
+main {
+  flex: 7;
+}
+
+/* Form styling */
+
+aside {
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+}
+
+aside div {
+  margin-bottom: 20px;
+}
+
+label, select, input {
+  display: block;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+select, input, button {
+  width: 100%;
+}
+
+input {
+  background: black;
+  box-shadow: inset 1px 1px 1px white;
+  color: yellow;
+  border: none;
+  padding: 5px;
+  width: 201.5px;
+}
+
+button {
+  background: black;
+  color: yellow;
+  padding: 5px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+}
+
+#buyForm {
+  position: sticky;
+  top: 40px; /* Adjust to the space below the “Filter results” button */
+  background: #000080;
+  color: yellow;
+  padding: 15px;
+  border: 3px solid yellow;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+#buyForm h2 {
+  font-size: 2rem;
+  color: yellow;
+  text-align: center;
+  position: static;
+  width: auto;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 10px;
+}
+
+.user-area {
+  font-size: 1.6rem;
+  color: black;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.user-area a {
+  color: black;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.user-area a:hover {
+  text-decoration: underline;
+}
+
+/* Styling the products */
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+section {
+  width: 45%;
+  margin: 5px;
+  background-color: black;
+  position: relative;
+  height: 215px;
+}
+
+section img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+}
+
+section p {
+  color: yellow;
+  background: black;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1px yellow;
+  position: absolute;
+  right: 10px;
+  bottom: -6px;
+  z-index: 2000;
+}
+
+section .buy-button {
+  color: yellow;
+  background: black;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1px yellow;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2000;
+}
+
+section .buy-button:hover {
+    background: green;
+    transform: scale(1.2);
+}
+
+
+.vegetables {
+  background: black url(https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/vegetable.png) no-repeat 2px 2px;
+  background-size: 24px 24px;
+}
+
+.meat {
+  background: black url(https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/meat.png) no-repeat 2px 2px;
+  background-size: 24px 24px;
+}
+
+.soup {
+  background: black url(https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/soup.png) no-repeat 2px 2px;
+  background-size: 24px 24px;
+}
+
+/* Add error message style in main */
+.error-message{
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1em;
+}
+
+/* mobile responsive styles*/
+@media screen and (max-width: 800px){
+  body, body div {
+    display: grid;
+    max-width: 480px;
+  }
+  header {
+    grid-row: 1;
+    margin-top: 10px;
+  }  
+  header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background-size: 48px 48px;
+  }
+    header .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-area {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  aside {
+    grid-row: 1;
+    border-right: none;    
+    border-bottom: 5px solid black; 
+    
+  }
+  input{
+    width: calc(100% - 5px);
+    padding: 5px 0 5px 5px;
+  }
+  main {
+    grid-row: 2;
+  }
+  footer {
+    grid-row: 3;
+    margin-bottom: 10px;
+  }
+  #buyForm {
+    position: sticky;
+    top: 10px; /* adjust as needed */
+    background: #000080;
+    color: yellow;
+    padding: 15px;
+    border: 3px solid yellow;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+}

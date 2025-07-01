@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Can Store</title>
+        <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="javascrip.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="title-with-icons">
+                    <img class="icon-left" src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png" alt="can icon">
+                    <h1>The Can Store</h1>
+                    <img class="icon-right" src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png" alt="can icon">
+                </div>
+
+                <div class="user-area">                    
+                    <span id="user-name">Guest</span>
+                    <a href="#">Log in</a>
+                    <a href="#">Sign up</a>
+                </div>
+
+            </div>            
+        </header>
+        <div>
+            <aside>
+                <form>
+                    <div>
+                        <label for="category">Choose a category:</label>
+                        <select id="category">
+                            <option selected>All</option>
+                            <option>Vegetables</option>
+                            <option>Meat</option>
+                            <option>Soup</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="searchTerm">Enter search term:</label>
+                        <input type="text" id="searchTerm" placeholder="e.g. beans">
+                    </div>
+                    <div>
+                        <button>Filter results</button>
+                    </div>
+                </form>
+                <form id="buyForm" style="display: none; margin-top: 20px;">
+                    <h2>Buy Product</h2>
+                    <div>
+                        <label for="buyProductName">Product:</label>
+                        <input type="text" id="buyProductName" readonly>
+                    </div>
+                    <div>
+                        <label for="buyQuantity">Quantity:</label>
+                        <input type="number" id="buyQuantity" min="1" value="1">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" style="background: green;">Confirm Purchase</button>
+                        <button 
+                            type="button" 
+                            id="cancelPurchaseBtn" 
+                            style="background: darkred;">
+                        Cancel
+                        </button>
+                    </div>
+                </form>
+
+            </aside>
+            <main>
+                <div class="error-message"></div>
+            </main>
+        </div>
+        <footer>
+            <p>All icons found at the Noun Project:</p>
+            <ul>
+                <li>Bean can icon by <a href="https://thenounproject.com/yalanis/">Yazmin Alanis</a></li>
+                <li>Vegetable icon by <a href="https://thenounproject.com/skatakila/">Ricardo Moreira</a></li>
+                <li>Soup icon by <a href="https://thenounproject.com/ArtZ91/">Arthur Shlain</a></li>
+                <li>Meat Chunk icon by <a href="https://thenounproject.com/smashicons/">Oliviu Stoian</a>.</li>
+            </ul>
+        </footer>
+    </body>
+</html>
