@@ -58,6 +58,8 @@ header, aside, main, footer {
 header {
   border: 5px solid black;
   border-bottom: 0;
+  display: flex;
+  flex-flow: column;
 }
 
 header .header-container {
@@ -66,6 +68,41 @@ header .header-container {
   align-items: center;
   position: relative;
 }
+
+/* Start sign up form */
+aside #signup-container {  
+  padding: 15px;
+  border : 3px solid yellow;
+  border-radius: 10px;
+  background: #000080;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+aside #signup-container h2 {
+  position: static;
+  width: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Stop sign up form */
+
+/* Start sign in form */
+aside #login-container {
+  padding: 15px;
+  border: 3px solid yellow;
+  border-radius: 10px;
+  background: #000080;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+aside #login-container h2 {
+  position: static;
+  width: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Stop sign in form */
+
 .icon-left,
 .icon-right {
   width: 48px;
@@ -107,8 +144,8 @@ aside {
   align-items: stretch;
 }
 
-aside div {
-  margin-bottom: 20px;
+aside input,aside button, aside select {
+  margin-bottom: 15px;
 }
 
 label, select, input {
@@ -141,6 +178,7 @@ button {
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
 }
 
+/* Start buy form */
 #buyForm {
   position: sticky;
   top: 40px; /* Adjust to the space below the “Filter results” button */
@@ -162,7 +200,9 @@ button {
   text-shadow: 1px 1px 1px black;
   margin-bottom: 10px;
 }
+/* Stop buy form */
 
+/* Start form for user */
 .user-area {
   font-size: 1.6rem;
   color: black;
@@ -179,6 +219,9 @@ button {
 .user-area a:hover {
   text-decoration: underline;
 }
+
+
+
 
 /* Styling the products */
 
@@ -277,7 +320,7 @@ section .buy-button:hover {
     font-weight: bold;
     background-size: 48px 48px;
   }
-    header .header-container {
+  header .header-container {
     flex-direction: column;
     align-items: center;
   }
@@ -305,15 +348,8 @@ section .buy-button:hover {
     margin-bottom: 10px;
   }
   #buyForm {
-    position: sticky;
-    top: 10px; /* adjust as needed */
-    background: #000080;
-    color: yellow;
-    padding: 15px;
-    border: 3px solid yellow;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    z-index: 1000;
+    width: 70%;
+    align-self: center;
   }
   
 }

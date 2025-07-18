@@ -1,84 +1,120 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Can Store</title>
-        <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-        <script src="javascrip.js" defer></script>
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <div class="title-with-icons">
-                    <img class="icon-left" src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png" alt="can icon">
-                    <h1>The Can Store</h1>
-                    <img class="icon-right" src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png" alt="can icon">
-                </div>
 
-                <div class="user-area">                    
-                    <span id="user-name">Guest</span>
-                    <a href="#">Log in</a>
-                    <a href="#">Sign up</a>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Can Store trial</title>
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer type="module"></script>
+    <script src="firebase-config.js" defer type="module"></script>   
+    <script src="signup.js" defer type="module"></script>
+    <link rel="icon"
+        href="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png"
+        type="image/png">
 
-            </div>            
-        </header>
-        <div>
-            <aside>
-                <form>
-                    <div>
-                        <label for="category">Choose a category:</label>
-                        <select id="category">
-                            <option selected>All</option>
-                            <option>Vegetables</option>
-                            <option>Meat</option>
-                            <option>Soup</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="searchTerm">Enter search term:</label>
-                        <input type="text" id="searchTerm" placeholder="e.g. beans">
-                    </div>
-                    <div>
-                        <button>Filter results</button>
-                    </div>
-                </form>
-                <form id="buyForm" style="display: none; margin-top: 20px;">
-                    <h2>Buy Product</h2>
-                    <div>
-                        <label for="buyProductName">Product:</label>
-                        <input type="text" id="buyProductName" readonly>
-                    </div>
-                    <div>
-                        <label for="buyQuantity">Quantity:</label>
-                        <input type="number" id="buyQuantity" min="1" value="1">
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                        <button type="submit" style="background: green;">Confirm Purchase</button>
-                        <button 
-                            type="button" 
-                            id="cancelPurchaseBtn" 
-                            style="background: darkred;">
-                        Cancel
-                        </button>
-                    </div>
-                </form>
+</head>
 
-            </aside>
-            <main>
-                <div class="error-message"></div>
-            </main>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="title-with-icons">
+                <img class="icon-left"
+                    src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png"
+                    alt="can icon">
+                <h1>The Can Store</h1>
+                <img class="icon-right"
+                    src="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/icons/bean_can.png"
+                    alt="can icon">
+            </div>
+
+            <div class="user-area">
+                <span id="user-name">Guest</span>
+                <a href="#" id="login-link">Log in</a>
+                <a href="#" id="signup-link">Sign up</a>
+                <a href="#" id="logout-link" style="display:none;">Log out</a>
+
+            </div>
         </div>
-        <footer>
-            <p>All icons found at the Noun Project:</p>
-            <ul>
-                <li>Bean can icon by <a href="https://thenounproject.com/yalanis/">Yazmin Alanis</a></li>
-                <li>Vegetable icon by <a href="https://thenounproject.com/skatakila/">Ricardo Moreira</a></li>
-                <li>Soup icon by <a href="https://thenounproject.com/ArtZ91/">Arthur Shlain</a></li>
-                <li>Meat Chunk icon by <a href="https://thenounproject.com/smashicons/">Oliviu Stoian</a>.</li>
-            </ul>
-        </footer>
-    </body>
+
+    </header>
+    <div>
+        <aside>
+            <form id="login-container" style="display: none;">
+                <h2>Log In with Phone</h2>
+                <input type="text" id="login-phone" placeholder="09XXXXXXXX" />
+                <div id="recaptcha-login-container"></div>
+                <button id="login-send-otp-btn">Send OTP</button>
+                <div id="login-otp-section" style="display: none;">
+                    <input type="text" id="login-otp-code" placeholder="Enter OTP" />
+                    <button id="login-verify-otp-btn">Verify OTP</button>
+                    <button id="cancel-login-btn" type="button">Cancel</button>
+                </div>
+            </form>
+
+            <form id="signup-container" style="display: none;">
+                <h2>Sign Up with Phone</h2>
+                <input type="text" id="signup-name" placeholder="Your Name" />
+                <input type="text" id="signup-phone" placeholder="09XXXXXXXX" />
+                <div id="recaptcha-container"></div>
+                <button id="send-otp-btn">Send OTP</button>
+                <button id="cancel-otp-btn">Cancel</button>
+
+                <div id="otp-section" style="display: none; margin-top: 10px;">
+                    <input type="text" id="otp-code" placeholder="Enter OTP" />
+                    <button id="verify-otp-btn">Verify OTP</button>
+                    <button id="cancel-signup-btn">Cancel</button>
+                </div>            
+            </form>
+            <form>
+                <div>
+                    <label for="category">Choose a category:</label>
+                    <select id="category">
+                        <option selected>All</option>
+                        <option>Vegetables</option>
+                        <option>Meat</option>
+                        <option>Soup</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="searchTerm">Enter search term:</label>
+                    <input type="text" id="searchTerm" placeholder="e.g. beans">
+                </div>
+                <div>
+                    <button>Filter results</button>
+                </div>
+            </form>
+            <form id="buyForm" style="display: none; margin-top: 20px;">
+                <h2>Buy Product</h2>
+                <div>
+                    <label for="buyProductName">Product:</label>
+                    <input type="text" id="buyProductName" readonly>
+                </div>
+                <div>
+                    <label for="buyQuantity">Quantity:</label>
+                    <input type="number" id="buyQuantity" min="1" value="1">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" style="background: green;">Confirm Purchase</button>
+                    <button type="button" id="cancelPurchaseBtn" style="background: darkred;"> Cancel </button>
+                </div>
+            </form>
+
+        </aside>
+        <main>
+            <div class="error-message"></div>
+        </main>
+    </div>
+    <footer>
+        <p>All icons found at the Noun Project:</p>
+        <ul>
+            <li>Bean can icon by <a href="https://thenounproject.com/yalanis/">Yazmin Alanis</a></li>
+            <li>Vegetable icon by <a href="https://thenounproject.com/skatakila/">Ricardo Moreira</a></li>
+            <li>Soup icon by <a href="https://thenounproject.com/ArtZ91/">Arthur Shlain</a></li>
+            <li>Meat Chunk icon by <a href="https://thenounproject.com/smashicons/">Oliviu Stoian</a>.</li>
+        </ul>
+    </footer>
+</body>
+
 </html>
